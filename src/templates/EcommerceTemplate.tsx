@@ -113,45 +113,51 @@ export const EcommerceTemplate = ({
   )
 
   const footer = (
-    <div className={`bg-black text-white py-12 ${footerClassName}`}>
+    <div className={`bg-foreground text-background py-12 ${footerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div>
+          <div className="md:col-span-2">
             <BrandLogoLeft />
-            <p className="mt-4 text-white/70">
-              Your trusted online store
+            <p className="mt-4 text-background/70 max-w-md">
+              Curating the finest vintage and secondhand fashion. Sustainable style, timeless pieces, circular economy.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Links</h3>
+            <h3 className="font-semibold mb-4 text-background">Quick Links</h3>
             <div className="space-y-2">
               <Link 
                 to="/" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-background transition-colors"
               >
                 Home
               </Link>
               <Link 
                 to="/blog" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-background transition-colors"
               >
                 Blog
               </Link>
+              <a 
+                href="#" 
+                className="block text-background/70 hover:text-background transition-colors"
+              >
+                Care Guide
+              </a>
             </div>
           </div>
 
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
+            <h3 className="font-semibold mb-4 text-background">Connect</h3>
             <SocialLinks />
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/70">
-          <p>&copy; 2025 Your Store. All rights reserved.</p>
+        <div className="mt-8 pt-8 border-t border-background/20 text-center text-background/70">
+          <p>&copy; 2025 Vintage Revival. All rights reserved. Circular fashion marketplace.</p>
         </div>
       </div>
     </div>

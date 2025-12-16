@@ -26,10 +26,10 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
   return (
     <HeadlessProductCard product={product}>
       {(logic) => (
-        <Card className="bg-white border border-gray-200">
+        <Card className="bg-card border hover:shadow-lg transition-all duration-300 group">
           <CardContent className="p-4">
             <Link to={`/products/${logic.product.slug}`} className="block">
-              <div className="aspect-square bg-gray-100 rounded-md mb-3 overflow-hidden relative">
+              <div className="aspect-square bg-muted rounded-lg mb-3 overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-300">
                 {(logic.matchingVariant?.image || (logic.product.images && logic.product.images.length > 0)) ? (
                   <img
                     src={(logic.matchingVariant?.image as any) || logic.product.images![0]}
@@ -45,18 +45,32 @@ export const ProductCardUI = ({ product }: ProductCardUIProps) => {
                 {/* Badges */}
                 <div className="absolute top-2 left-2 flex flex-col gap-1">
                   {logic.discountPercentage && (
-                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium">
-                      -{logic.discountPercentage}%
+                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-md font-medium shadow-sm">
+                      -{logic.discountPercentage}% OFF
                     </span>
                   )}
                   {logic.product.featured && (
-                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded font-medium">
+                    <span className="bg-gradient-to-r from-primary to-accent text-foreground text-xs px-2 py-1 rounded-md font-medium shadow-sm">
                       Featured
                     </span>
                   )}
                   {!logic.inStock && (
-                    <span className="bg-gray-600 text-white text-xs px-2 py-1 rounded font-medium">
-                      Out of stock
+                    <span className="bg-gray-600 text-white text-xs px-2 py-1 rounded-md font-medium">
+                      Sold Out
+                    </span>
+                  )}
+                </div>
+                
+                {/* Condition Badge */}
+                <div className="absolute top-2 right-2">
+                  {logic.product.tags?.includes('Excellent Condition') && (
+                    <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-md font-medium shadow-sm">
+                      Excellent
+                    </span>
+                  )}
+                  {logic.product.tags?.includes('Good Condition') && (
+                    <span className="bg-primary text-white text-xs px-2 py-1 rounded-md font-medium shadow-sm">
+                      Good
                     </span>
                   )}
                 </div>

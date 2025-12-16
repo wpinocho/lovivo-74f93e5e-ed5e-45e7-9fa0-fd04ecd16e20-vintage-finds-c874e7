@@ -16,30 +16,30 @@ export const NewsletterSection = () => {
   return (
     <HeadlessNewsletter>
       {(logic) => (
-        <section className="bg-muted/30 py-16 border-y">
+        <section className="bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 py-20 border-y">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {logic.success ? (
               <div className="space-y-4">
                 <div className="flex justify-center">
-                  <div className="bg-primary/10 rounded-full p-3">
-                    <Mail className="h-8 w-8 text-primary" />
+                  <div className="bg-primary rounded-full p-4">
+                    <Mail className="h-10 w-10 text-primary-foreground" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  Thanks for subscribing!
+                <h3 className="text-3xl font-bold text-foreground">
+                  Welcome to the community!
                 </h3>
-                <p className="text-muted-foreground">
-                  You'll receive our best offers and promotions soon.
+                <p className="text-lg text-muted-foreground">
+                  Get ready for curated vintage finds and exclusive drops.
                 </p>
               </div>
             ) : (
               <div className="space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">
-                    Want promotional emails?
+                <div className="space-y-3">
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                    Join the Vintage Revival
                   </h3>
-                  <p className="text-lg text-muted-foreground">
-                    Subscribe to our newsletter and get exclusive offers
+                  <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+                    Get first access to new arrivals, styling tips, and exclusive vintage treasures delivered to your inbox.
                   </p>
                 </div>
                 
@@ -62,9 +62,10 @@ export const NewsletterSection = () => {
                   <Button 
                     type="submit"
                     disabled={logic.isSubmitting}
-                    className="sm:w-auto"
+                    className="sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                    size="lg"
                   >
-                    {logic.isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                    {logic.isSubmitting ? 'Subscribing...' : 'Join Now'}
                   </Button>
                 </form>
                 
